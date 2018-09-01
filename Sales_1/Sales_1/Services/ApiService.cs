@@ -1,16 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Sales_1.Services
+﻿namespace Sales_1.Services
 {
-    using Common.Models;
-    using Newtonsoft.Json;
-    using Plugin.Connectivity;
     using System;
     using System.Collections.Generic;
     using System.Net.Http;
     using System.Threading.Tasks;
+    using Common.Models;
+    using Newtonsoft.Json;
+    using Helpers;
+    using Plugin.Connectivity;
+    
     public class ApiService
     {
         public async Task<Response> CheckConnection()
@@ -20,7 +18,7 @@ namespace Sales_1.Services
                 return new Response
                 {
                     IsSuccess = false,
-                    Message = "turn ",// Languages.TurnOnInternet,
+                    Message =  Languages.TurnOnInternet,
                 };
             }
 
@@ -30,7 +28,7 @@ namespace Sales_1.Services
                 return new Response
                 {
                     IsSuccess = false,
-                    Message = "no internet ",//Languages.NoInternet,
+                    Message = Languages.NoInternet,
                 };
             }
 

@@ -6,6 +6,7 @@ namespace Sales_1.ViewModels
 {
     using GalaSoft.MvvmLight.Command;
     using Sales_1.Common.Models;
+    using Sales_1.Helpers;
     using Sales_1.Services;
     using System;
     using System.Collections.Generic;
@@ -41,17 +42,19 @@ namespace Sales_1.ViewModels
             if (!connection.IsSuccess)
             {
                 this.IsRefreshing = false;
-                await Application.Current.MainPage.DisplayAlert("Error", connection.Message, "Accept");
+                await Application.Current.MainPage.DisplayAlert(Languages.Error, connection.Message, Languages.Accept);
                 return;
             }
             var url = Application.Current.Resources["UrlAPI"].ToString();
-            var response = await this.apiService.GetList<Product>(url, "/api", "/Products");
-            //var response = await this.apiService.GetList<Product>("http://sales1api.azurewebsites.net/", "/api", "/Products");
+            var prefix = Application.Current.Resources["UrlPrefix"].ToString();
+            var controller = Application.Current.Resources["UrlProductsController"].ToString();
+            //var response = await this.apiService.GetList<Product>(url, prefix, controller);
+            var response = await this.apiService.GetList<Product>("http://sales1api.azurewebsites.net/", "/api", "/Products");
 
             if (!response.IsSuccess)
             {
                 this.IsRefreshing = false;
-                await Application.Current.MainPage.DisplayAlert("Error", response.Message, "Accept");
+                await Application.Current.MainPage.DisplayAlert(Languages.Error, response.Message, Languages.Accept);
                 return;
             }
 
