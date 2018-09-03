@@ -135,4 +135,31 @@
   <data name="Products" xml:space="preserve">
     <value>Products</value>
   </data>
+  <data name="NewProduct" xml:space="preserve">
+    <value>New Product</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="Image" xml:space="preserve">
+    <value>Image</value>
+  </data>
+  <data name="Price" xml:space="preserve">
+    <value>Price</value>
+  </data>
+  <data name="DescriptionPlaceholder" xml:space="preserve">
+    <value>Insert any description</value>
+  </data>
+  <data name="PricePlaceholder" xml:space="preserve">
+    <value>Insert price</value>
+  </data>
+  <data name="Remarks" xml:space="preserve">
+    <value>Remarks</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="ChangeImage" xml:space="preserve">
+    <value>Touch the image to change</value>
+  </data>
 </root>

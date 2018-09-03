@@ -163,5 +163,10 @@
       <Name>Sales_1</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <BundleResource Include="Resources\noproduct.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_action_control_point.png" />
+  </ItemGroup>
 </Project>

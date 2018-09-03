@@ -38,6 +38,38 @@ namespace Sales_1.Helpers
         {
             get { return Resource.Products; }
         }
+        public static string NewProduct
+        {
+            get { return Resource.NewProduct; }
+        }
+        public static string Price
+        {
+            get { return Resource.Price; }
+        }
+        public static string Image
+        {
+            get { return Resource.Image; }
+        }
+        public static string DescriptionPlaceholder
+        {
+            get { return Resource.DescriptionPlaceholder; }
+        }
+        public static string PricePlaceholder
+        {
+            get { return Resource.PricePlaceholder; }
+        }
+        public static string Remarks
+        {
+            get { return Resource.Remarks; }
+        }
+        public static string Save
+        {
+            get { return Resource.Save; }
+        }
+        public static string ChangeImage
+        {
+            get { return Resource.ChangeImage; }
+        }
     }
 
 }
