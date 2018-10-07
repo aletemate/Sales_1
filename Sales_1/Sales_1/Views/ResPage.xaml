@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:i18n="clr-namespace:Sales_1.Helpers"
+             x:Class="Sales_1.Views.ResPage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Title="Manuel">
+    <ContentPage.Content>
+        <StackLayout
+            BindingContext="{Binding Res}">
+            <Label Text="ID:::">                
+            </Label>
+            <Label
+                Text="{Binding Product.IdProduct}">                
+            </Label>
+            <Label Text="DESCRIPTION:::">
+            </Label>
+            <Label
+                Text="{Binding Product.Description}">
+            </Label>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
+﻿
 namespace Sales_1.Infrastructure
 {
     using Sales_1.ViewModels;

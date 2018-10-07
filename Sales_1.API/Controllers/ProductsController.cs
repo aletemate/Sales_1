@@ -4,6 +4,7 @@ namespace Sales_1.API.Controllers
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.IO;
     using System.Linq;
     using System.Net;
     using System.Threading.Tasks;
@@ -11,7 +12,10 @@ namespace Sales_1.API.Controllers
     using System.Web.Http.Description;
     using Common.Models;
     using Domain.Models;
+    using Sales_1.API.Helpers;
 
+
+    [Authorize]
     public class ProductsController : ApiController
     {
         private DataContext db = new DataContext();
@@ -48,7 +52,20 @@ namespace Sales_1.API.Controllers
             {
                 return BadRequest();
             }
+            if (product.ImageArray != null && product.ImageArray.Length > 0)
+            {
+                var stream = new MemoryStream(product.ImageArray);
+                var guid = Guid.NewGuid().ToString();//alphanumeric inrepetible code
+                var file = $"{guid}.jpg";
+                var folder = "~/Content/Products";
+                var fullPath = $"{folder}/{file}";
+                var response = FilesHelper.UploadPhoto(stream, folder, file);
 
+                if (response)
+                {
+                    product.ImagePath = fullPath;
+                }
+            }
             this.db.Entry(product).State = EntityState.Modified;
 
             try
@@ -67,7 +84,7 @@ namespace Sales_1.API.Controllers
                 }
             }
 
-            return StatusCode(HttpStatusCode.NoContent);
+            return Ok(product);
         }
 
         // POST: api/Products
@@ -80,6 +97,21 @@ namespace Sales_1.API.Controllers
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
+            }
+
+            if (product.ImageArray != null && product.ImageArray.Length > 0)
+            {
+                var stream = new MemoryStream(product.ImageArray);
+                var guid = Guid.NewGuid().ToString();//alphanumeric inrepetible code
+                var file = $"{guid}.jpg";
+                var folder = "~/Content/Products";
+                var fullPath = $"{folder}/{file}";
+                var response = FilesHelper.UploadPhoto(stream, folder, file);
+
+                if (response)
+                {
+                    product.ImagePath = fullPath;
+                }
             }
 
             this.db.Products.Add(product);

@@ -10,11 +10,27 @@ namespace Sales_1.ViewModels
     {
         public ProductsViewModel Products { get; set; }
         public AddProductViewModel AddProduct { get; set; }
+        public EditProductViewModel EditProduct  { get; set; }
+        public LoginViewModel Login { get; set; }
+        public ResViewModel Res { get; set; }
+
+        private static MainViewModel instance;
+        public static MainViewModel GetInstance()
+        {
+            if (instance == null)
+            {
+                return new MainViewModel();
+            }
+            return instance;
+        }
 
         public MainViewModel()
         {
-            this.Products = new ProductsViewModel();
+            instance = this;
+           // this.Products = new ProductsViewModel();
         }
+
+       
 
         public ICommand AddProductCommand
         {
